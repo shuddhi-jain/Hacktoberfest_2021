@@ -1,40 +1,35 @@
-#include <stdio.h>
-#include<stdlib.h>
-void swap(int *x,int *y)
-{
- int temp=*x;
- *x=*y;
- *y=temp;
-}
-void Bubble(int A[],int n)
-{
- int i,j,flag=0;
- 
- for(i=0;i<n-1;i++)
- {
- flag=0;
- for(j=0;j<n-i-1;j++)
- {
- if(A[j]>A[j+1])
- {
- swap(&A[j],&A[j+1]);
- flag=1;
- }
- }
- if(flag==0)
- break;
- }
- 
-}
+#include<stdio.h>
+int bubble_sort(int [], int);
 int main()
 {
- int A[]={11,13,7,12,16,9,24,5,10,3},n=10,i;
- 
- Bubble(A,n);
- 
- for(i=0;i<10;i++)
- printf("%d ",A[i]);
- printf("\n");
- 
- return 0;
+    int i,a[20] ,r, n;
+    printf("enter the number of element of the array:");
+    scanf("%d", &n);
+    printf("enter %d element of the array:",n);
+    for(i=0;i<n;i++)
+    scanf("%d",&a[i]);
+    printf("before bubble sort:\n");
+    for(i=0;i<n;i++)
+    printf("%d\n",a[i]);
+    bubble_sort(a,n);
+    printf("sorted list in ascending order:\n");
+    for(i=0;i<n;i++)
+    printf("%d\n",a[i]);
+    return 0;
+}
+int bubble_sort(int a[],int n)
+{
+  int i,j,t;
+  for(i=0;i<n-1;i++) 
+ {
+      for(j=0;j<n-i-1;j++)
+     {
+        if(a[j]>a[j+1]) 
+       {
+           t=a[j];
+           a[j]=a[j+1];
+           a[j+1]=t;
+       }
+     }
+  }
 }
